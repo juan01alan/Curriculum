@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Alan | Currículo Híbrido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, .font-title { font-family: 'Manrope', sans-serif; }
+        .transition-all { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bg-tranquil { background-color: #f8fafc; }
+        /* Badge styling */
+        .badge { @apply px-3 py-1 rounded-lg text-xs font-bold italic transition-colors duration-300; }
+    </style>
+</head>
+<body class="bg-tranquil text-slate-700">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h1 class="text-3xl font-black text-slate-800 tracking-tight">Juan Alan dos Santos Rocha</h1>
+                <p class="text-slate-500 font-medium flex items-center justify-center md:justify-start gap-2 mt-1">
+                    <i id="theme-icon" class="fas fa-location-dot text-teal-600"></i> Salvador – BA | 22 anos
+                </p>
+            </div>
+            
+            <div class="bg-slate-100 p-1 rounded-2xl flex shadow-inner w-full md:w-auto">
+                <button onclick="switchView('psychology')" id="btn-psych" class="flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-teal-600 text-white shadow-md">
+                    <i class="fas fa-brain mr-2"></i> PSICOLOGIA
+                </button>
+                <button onclick="switchView('tech')" id="btn-tech" class="flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800">
+                    <i class="fas fa-code mr-2"></i> TECNOLOGIA
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-5xl">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <aside class="space-y-8">
+                <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4">Contato</h3>
+                    <div class="space-y-4">
+                        <a href="mailto:juan01alan@gmail.com" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors link-icon">
+                            <i class="fas fa-envelope w-5"></i> <span class="text-sm truncate">juan01alan@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/juan-alan-98bbb1380" target="_blank" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors link-icon">
+                            <i class="fab fa-linkedin w-5"></i> <span class="text-sm">LinkedIn</span>
+                        </a>
+                        <a href="https://juan01alan.github.io/portifolio/" target="_blank" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors link-icon">
+                            <i class="fas fa-laptop-code w-5"></i> <span class="text-sm">Portfólio Web</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4">Competências</h3>
+                    
+                    <div id="skills-psych" class="flex flex-wrap gap-2">
+                        <span class="badge bg-teal-50 text-teal-700">Escuta Ativa</span>
+                        <span class="badge bg-teal-50 text-teal-700">Desenvolvimento Infantil</span>
+                        <span class="badge bg-teal-50 text-teal-700">Apoio Pedagógico (EJA)</span>
+                        <span class="badge bg-teal-50 text-teal-700">Metodologias Ágeis (SCRUM)</span>
+                        <span class="badge bg-teal-50 text-teal-700">Triagem e Recrutamento</span>
+                        <span class="badge bg-teal-50 text-teal-700">Análise Comportamental</span>
+                        <span class="badge bg-teal-50 text-teal-700">Empatia & Ética</span>
+                    </div>
+
+                    <div id="skills-tech" class="hidden flex flex-wrap gap-2">
+                        <span class="badge bg-blue-50 text-blue-700">Desenvolvimento Web Fullstack</span>
+                        <span class="badge bg-blue-50 text-blue-700">Game Design</span>
+                        <span class="badge bg-blue-50 text-blue-700">Lógica de Programação</span>
+                        <span class="badge bg-blue-50 text-blue-700">Gestão de Dados</span>
+                        <span class="badge bg-blue-50 text-blue-700">Pacote Office Avançado</span>
+                        <span class="badge bg-blue-50 text-blue-700">Resolução de Problemas</span>
+                    </div>
+                </section>
+            </aside>
+
+            <div class="lg:col-span-2 space-y-12">
+                
+                <section class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm transition-all">
+                    <h2 id="title-profile" class="text-2xl font-black text-slate-800 mb-4 flex items-center gap-3">
+                        <i id="profile-icon" class="fas fa-user-circle text-teal-600"></i> Sobre Mim
+                    </h2>
+                    <p id="text-profile" class="text-slate-600 leading-relaxed italic">
+                        Estudante de Psicologia (5º semestre) pela UNIFTC. Minha atuação é focada na integração entre o cuidado humano e processos organizacionais. Possuo experiência prática em projetos sociais, desenvolvimento infantil e apoio educacional, utilizando ferramentas de escuta ativa e observação para promover ambientes mais humanos e eficientes.
+                    </p>
+                </section>
+
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
+                        <i id="exp-icon" class="fas fa-briefcase text-teal-600"></i> Trajetória e Experiência
+                    </h2>
+
+                    <div class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative">
+                        <div class="view-psych relative">
+                            <span class="dot-indicator absolute -left-[41px] top-0 bg-teal-600 w-5 h-5 rounded-full border-4 border-white"></span>
+                            <h4 class="font-black text-slate-800">Desenvolvimento Infantil e Educação</h4>
+                            <p class="text-xs font-bold text-teal-600 uppercase mb-2 theme-text">Projetos Sociais & EJA</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Atuação direta com crianças em atividades pedagógicas e bancas educacionais. Apoio em salas de aula da EJA, aplicando empatia e metodologias de ensino para fortalecer o aprendizado e o bem-estar dos alunos.
+                            </p>
+                        </div>
+
+                        <div class="view-tech hidden relative">
+                            <span class="dot-indicator absolute -left-[41px] top-0 bg-blue-600 w-5 h-5 rounded-full border-4 border-white"></span>
+                            <h4 class="font-black text-slate-800">Programador de Jogos e Websites</h4>
+                            <p class="text-xs font-bold text-blue-600 uppercase mb-2 theme-text">Tecnologia & Inovação</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Desenvolvimento de soluções digitais com foco em usabilidade e lógica. Experiência técnica que amplia a capacidade analítica e a organização de fluxos de trabalho tecnológicos.
+                            </p>
+                        </div>
+
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-0 bg-slate-300 w-5 h-5 rounded-full border-4 border-white"></span>
+                            <h4 class="font-black text-slate-800">Gestão de RH e Administrativa</h4>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Processos & Pessoas</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Suporte a processos internos, atualização de dados e atendimento. Aplicação de visão organizacional para otimizar a gestão de talentos e a produtividade da equipe.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                        <p class="text-[10px] font-black text-teal-600 uppercase theme-text">Graduação</p>
+                        <p class="font-bold text-slate-800">Psicologia (5º Semestre)</p>
+                        <p class="text-xs text-slate-500">UNIFTC - Campus Paralela</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                        <p class="text-[10px] font-black text-slate-400 uppercase">Técnico</p>
+                        <p class="font-bold text-slate-800">Técnico em Alimentos</p>
+                        <p class="text-xs text-slate-500">IFBA - Campus Catu</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-slate-200 mt-12 bg-white text-center">
+        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+            Main System &copy; 2026 | Juan Alan
+        </p>
+    </footer>
+
+    <script>
+        /**
+         * Lógica de Alternância de Visão
+         * @param {string} mode - 'psychology' ou 'tech'
+         */
+        function switchView(mode) {
+            // Referências de Elementos
+            const btnPsych = document.getElementById('btn-psych');
+            const btnTech = document.getElementById('btn-tech');
+            const skillsPsych = document.getElementById('skills-psych');
+            const skillsTech = document.getElementById('skills-tech');
+            const psychContent = document.querySelectorAll('.view-psych');
+            const techContent = document.querySelectorAll('.view-tech');
+            const textProfile = document.getElementById('text-profile');
+            
+            // Textos para o "Sobre Mim"
+            const bioPsych = "Estudante de Psicologia (5º semestre) pela UNIFTC. Minha atuação é focada na integração entre o cuidado humano e processos organizacionais. Possuo experiência prática em projetos sociais, desenvolvimento infantil e apoio educacional, utilizando ferramentas de escuta ativa e observação para promover ambientes mais humanos e eficientes.";
+            const bioTech = "Programador com sólido raciocínio lógico e experiência em desenvolvimento de jogos e websites. Busco unir a tecnologia à gestão de pessoas, utilizando minha base analítica para criar sistemas eficientes e organizar fluxos de dados, sempre com foco em resultados e inovação tecnológica.";
+
+            if (mode === 'tech') {
+                // Estilo dos Botões
+                btnTech.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-blue-600 text-white shadow-md";
+                btnPsych.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
+                
+                // Texto Sobre Mim
+                textProfile.innerText = bioTech;
+                
+                // Alternar Seções e Skills
+                techContent.forEach(el => el.classList.remove('hidden'));
+                psychContent.forEach(el => el.classList.add('hidden'));
+                skillsTech.classList.remove('hidden');
+                skillsPsych.classList.add('hidden');
+
+                // Atualizar Cores de Acento (Teal para Blue)
+                updateThemeColors('teal', 'blue');
+            } else {
+                // Modo Psicologia (Padrão)
+                btnPsych.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-teal-600 text-white shadow-md";
+                btnTech.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
+                
+                textProfile.innerText = bioPsych;
+                
+                techContent.forEach(el => el.classList.add('hidden'));
+                psychContent.forEach(el => el.classList.remove('hidden'));
+                skillsTech.classList.add('hidden');
+                skillsPsych.classList.remove('hidden');
+
+                updateThemeColors('blue', 'teal');
+            }
+        }
+
+        /**
+         * Função auxiliar para trocar as classes de cores dinamicamente
+         */
+        function updateThemeColors(from, to) {
+            // Ícones e Textos
+            const elements = document.querySelectorAll(`.text-${from}-600, .bg-${from}-600, .hover\\:text-${from}-600, .theme-text`);
+            
+            document.querySelectorAll('.fas, .fab').forEach(icon => {
+                icon.classList.replace(`text-${from}-600`, `text-${to}-600`);
+            });
+
+            document.querySelectorAll('.link-icon').forEach(link => {
+                link.classList.replace(`hover:text-${from}-600`, `hover:text-${to}-600`);
+            });
+
+            document.querySelectorAll('.dot-indicator, .theme-text').forEach(el => {
+                if (el.classList.contains(`bg-${from}-600`)) el.classList.replace(`bg-${from}-600`, `bg-${to}-600`);
+                if (el.classList.contains(`text-${from}-600`)) el.classList.replace(`text-${from}-600`, `text-${to}-600`);
+            });
+        }
+    </script>
+</body>
+</html>
