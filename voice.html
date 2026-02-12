@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Alan | Currículo Híbrido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, .font-title { font-family: 'Manrope', sans-serif; }
+        .transition-all { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bg-tranquil { background-color: #f8fafc; }
+        .badge { @apply px-3 py-1 rounded-lg text-xs font-bold italic transition-colors duration-300; }
+        audio::-webkit-media-controls-panel { background-color: #f1f5f9; }
+    </style>
+</head>
+<body class="bg-tranquil text-slate-700">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h1 class="text-3xl font-black text-slate-800 tracking-tight">Juan Alan dos Santos Rocha</h1>
+                <p class="text-slate-500 font-medium flex items-center justify-center md:justify-start gap-2 mt-1">
+                    <i id="theme-icon" class="fas fa-microphone-lines text-indigo-600"></i> Salvador – BA | Português (BR) Native
+                </p>
+            </div>
+            
+            <div class="bg-slate-100 p-1 rounded-2xl flex shadow-inner w-full md:w-auto overflow-x-auto">
+                <button onclick="switchView('voice')" id="btn-voice" class="flex-1 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-indigo-600 text-white shadow-md whitespace-nowrap">
+                    <i class="fas fa-microphone mr-2"></i> VOICE ACTOR
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-5xl">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <aside class="space-y-8">
+                <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4">Contact</h3>
+                    <div class="space-y-4">
+                        <a href="mailto:juan01alan@gmail.com" class="flex items-center gap-3 text-slate-600 hover:text-indigo-600 transition-colors link-icon">
+                            <i class="fas fa-envelope w-5"></i> <span class="text-sm truncate">juan01alan@gmail.com</span>
+                        </a>
+                      
+                    </div>
+                </section>
+
+                <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4">Habilidades</h3>
+                    <div id="skills-voice" class="flex flex-wrap gap-2">
+                        <span class="badge bg-indigo-50 text-indigo-700">Locução Natural</span>
+                        <span class="badge bg-indigo-50 text-indigo-700">Expressão Emocional</span>
+                        <span class="badge bg-indigo-50 text-indigo-700">Home Studio</span>
+                        <span class="badge bg-indigo-50 text-indigo-700">Edição de Áudio</span>
+                    </div>
+                    <div id="skills-psych" class="hidden flex flex-wrap gap-2">
+                        <span class="badge bg-teal-50 text-teal-700">Escuta Ativa</span>
+                        <span class="badge bg-teal-50 text-teal-700">Análise Comportamental</span>
+                    </div>
+                    <div id="skills-tech" class="hidden flex flex-wrap gap-2">
+                        <span class="badge bg-blue-50 text-blue-700">Web Fullstack</span>
+                        <span class="badge bg-blue-50 text-blue-700">Lógica de Dados</span>
+                    </div>
+                </section>
+            </aside>
+
+            <div class="lg:col-span-2 space-y-8">
+                
+                <section class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm">
+                    <h2 class="text-2xl font-black text-slate-800 mb-4 flex items-center gap-3">
+                        <i id="profile-icon" class="fas fa-comment-dots text-indigo-600"></i> Sobre Mim
+                    </h2>
+                    <p id="text-profile" class="text-slate-600 leading-relaxed italic">
+                        Native Brazilian Portuguese speaker with a background in Psychology and Technology. I specialize in delivering natural, expressive, and high-quality voice recordings for AI training and digital content, combining technical precision with human emotional depth.
+                    </p>
+                </section>
+
+                <section id="voice-samples" class="space-y-6">
+                    <h2 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
+                        <i class="fas fa-play-circle text-indigo-600 theme-icon"></i> Voice Samples
+                    </h2>
+                    
+                    <div class="grid gap-4">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col md:flex-row items-center gap-4">
+                            <div class="flex-1"><p class="text-sm font-bold text-slate-700">01. Natural / Narrative</p></div>
+                            <audio controls class="w-full md:w-64 h-8"><source src="1.mp3" type="audio/mpeg"></audio>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col md:flex-row items-center gap-4">
+                            <div class="flex-1"><p class="text-sm font-bold text-slate-700">02. Emotional / Dynamic</p></div>
+                            <audio controls class="w-full md:w-64 h-8"><source src="2.mp3" type="audio/mpeg"></audio>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-100 flex flex-col md:flex-row items-center gap-4">
+                            <div class="flex-1"><p class="text-sm font-bold text-slate-700">03. Technical / Clear</p></div>
+                            <audio controls class="w-full md:w-64 h-8"><source src="3.mp3" type="audio/mpeg"></audio>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
+                        <i id="exp-icon" class="fas fa-briefcase text-indigo-600"></i> Trajetória
+                    </h2>
+
+                    <div id="experience-list" class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative">
+                        </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-slate-200 mt-12 bg-white text-center">
+        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+            Juan Alan &copy; 2026 | Micro1 Candidate
+        </p>
+    </footer>
+
+    <script>
+        const content = {
+            voice: {
+                bio: "Native Brazilian Portuguese speaker with a background in Psychology and Technology. I specialize in delivering natural, expressive, and high-quality voice recordings for AI training and digital content, combining technical precision with human emotional depth.",
+                color: "indigo",
+                icon: "fa-comment-dots",
+                exp: [
+                    { title: "Voice Content Creation", subtitle: "Digital Media", text: "Production of clear and engaging audio content, focusing on prosody and natural flow for Brazilian Portuguese audiences." },
+                    { title: "AI Training & Data Input", subtitle: "Technology Support", text: "Experience in providing structured data and linguistic samples to improve machine learning models." }
+                ]
+            },
+            psychology: {
+                bio: "Estudante de Psicologia (5º semestre). Foco na integração entre o cuidado humano e processos organizacionais, utilizando escuta ativa para promover ambientes eficientes.",
+                color: "teal",
+                icon: "fa-brain",
+                exp: [
+                    { title: "Desenvolvimento Infantil", subtitle: "Projetos Sociais", text: "Atuação direta com crianças em atividades pedagógicas e apoio em salas de aula da EJA." }
+                ]
+            },
+            tech: {
+                bio: "Programador com sólido raciocínio lógico e experiência em desenvolvimento de jogos e websites. Foco em usabilidade e fluxos de dados.",
+                color: "blue",
+                icon: "fa-code",
+                exp: [
+                    { title: "Dev Fullstack / Game Design", subtitle: "Tecnologia", text: "Desenvolvimento de soluções digitais com foco em lógica e experiência do usuário." }
+                ]
+            }
+        };
+
+        function switchView(mode) {
+            const data = content[mode];
+            
+            // Atualizar Botões
+            ['voice', 'psychology', 'tech'].forEach(m => {
+                const btn = document.getElementById(`btn-${m}`);
+                if(m === mode) {
+                    btn.className = `flex-1 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-${data.color}-600 text-white shadow-md whitespace-nowrap`;
+                } else {
+                    btn.className = "flex-1 px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 hover:text-slate-800 whitespace-nowrap";
+                }
+            });
+
+            // Atualizar Perfil
+            document.getElementById('text-profile').innerText = data.bio;
+            const profileIcon = document.getElementById('profile-icon');
+            profileIcon.className = `fas ${data.icon} text-${data.color}-600`;
+
+            // Alternar Visibilidade das Samples e Skills
+            document.getElementById('voice-samples').classList.toggle('hidden', mode !== 'voice');
+            document.getElementById('skills-voice').classList.toggle('hidden', mode !== 'voice');
+            document.getElementById('skills-psych').classList.toggle('hidden', mode !== 'psychology');
+            document.getElementById('skills-tech').classList.toggle('hidden', mode !== 'tech');
+
+            // Atualizar Lista de Experiência
+            const expList = document.getElementById('experience-list');
+            expList.innerHTML = data.exp.map(e => `
+                <div class="relative">
+                    <span class="absolute -left-[41px] top-0 bg-${data.color}-600 w-5 h-5 rounded-full border-4 border-white"></span>
+                    <h4 class="font-black text-slate-800">${e.title}</h4>
+                    <p class="text-xs font-bold text-${data.color}-600 uppercase mb-2">${e.subtitle}</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">${e.text}</p>
+                </div>
+            `).join('');
+
+            // Cores Globais
+            document.getElementById('theme-icon').className = `fas ${mode === 'voice' ? 'fa-microphone-lines' : (mode === 'tech' ? 'fa-code' : 'fa-brain')} text-${data.color}-600`;
+            document.getElementById('exp-icon').className = `fas fa-briefcase text-${data.color}-600`;
+        }
+
+        // Inicializar
+        switchView('voice');
+    </script>
+</body>
+</html>
