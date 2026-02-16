@@ -57,12 +57,13 @@
                         <a href="https://www.linkedin.com/in/juan-alan-98bbb1380" target="_blank" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors link-icon">
                             <i class="fab fa-linkedin w-5"></i> <span class="text-sm">LinkedIn</span>
                         </a>
-                        <div class="pt-2 space-y-2 border-t border-slate-50">
+                        
+                        <div id="portfolio-links" class="hidden pt-2 space-y-2 border-t border-slate-50">
                             <a href="https://juan01alan.github.io/portifolio/" target="_blank" class="flex items-center gap-3 text-slate-500 hover:text-teal-600 text-xs transition-colors">
                                 <i class="fas fa-external-link-alt"></i> Portfolio Principal
                             </a>
                             <a href="https://juan01alan.github.io/portifolioOk/" target="_blank" class="flex items-center gap-3 text-slate-500 hover:text-teal-600 text-xs transition-colors">
-                                <i class="fas fa-check-circle"></i> Portfolio Secundário (OK)
+                                <i class="fas fa-check-circle"></i> Portfolio Secundário
                             </a>
                         </div>
                     </div>
@@ -75,8 +76,7 @@
 
                 <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
                     <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-courses">Educação e Cursos</h3>
-                    <ul id="courses-list" class="text-xs space-y-3 font-medium text-slate-600">
-                        </ul>
+                    <ul id="courses-list" class="text-xs space-y-3 font-medium text-slate-600"></ul>
                 </section>
             </aside>
 
@@ -105,9 +105,7 @@
                     <h2 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
                         <i id="exp-icon" class="fas fa-briefcase text-teal-600"></i> <span data-i18n="title-exp">Experiência</span>
                     </h2>
-
-                    <div id="experience-container" class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative">
-                        </div>
+                    <div id="experience-container" class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative"></div>
                 </section>
 
                 <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -205,16 +203,18 @@
                 if(texts[key]) el.innerText = texts[key];
             });
 
-            // Bio e Visibilidade do Card Main System
-            document.getElementById('text-profile').innerText = currentView === 'tech' ? texts["bio-tech"] : texts["bio-psych"];
-            document.getElementById('main-system-card').classList.toggle('hidden', currentView !== 'tech');
+            // Visibilidade dinâmica (Main System e Portfólios)
+            const isTech = currentView === 'tech';
+            document.getElementById('text-profile').innerText = isTech ? texts["bio-tech"] : texts["bio-psych"];
+            document.getElementById('main-system-card').classList.toggle('hidden', !isTech);
+            document.getElementById('portfolio-links').classList.toggle('hidden', !isTech);
 
             // Skills
             document.getElementById('skills-container').innerHTML = data.skills.map(s => 
                 `<span class="badge bg-${colorName}-50 text-${colorName}-700">${s}</span>`
             ).join('');
 
-            // Cursos (Com destaque para SENAI em tech)
+            // Cursos
             document.getElementById('courses-list').innerHTML = data.courses.map(c => 
                 `<li class="flex items-start gap-2">
                     <i class="fas fa-certificate text-${colorName}-600 mt-1"></i> 
@@ -226,7 +226,7 @@
             const bP = document.getElementById('btn-psych');
             const bT = document.getElementById('btn-tech');
             bP.className = `flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all ${currentView === 'psychology' ? 'bg-teal-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`;
-            bT.className = `flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all ${currentView === 'tech' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`;
+            bT.className = `flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all ${isTech ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`;
 
             // Experiências
             const expCont = document.getElementById('experience-container');
