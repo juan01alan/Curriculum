@@ -14,22 +14,22 @@
         .transition-all { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .bg-tranquil { background-color: #f8fafc; }
         .badge { @apply px-3 py-1 rounded-lg text-xs font-bold italic transition-colors duration-300; }
-        .lang-active { @apply text-teal-600 font-black border-b-2 border-teal-600; }
-        .view-hidden { display: none !important; }
+        .lang-btn { @apply text-xs font-bold px-2 py-1 rounded transition-all; }
+        .lang-active { @apply bg-teal-600 text-white shadow-sm; }
     </style>
 </head>
 <body class="bg-tranquil text-slate-700">
 
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-6">
-                <div class="text-center md:text-left">
-                    <h1 class="text-2xl font-black text-slate-800 tracking-tight">Juan Alan dos Santos Rocha</h1>
-                    <p class="text-slate-500 text-sm font-medium">Salvador – BA | 22 anos</p>
-                </div>
-                <div class="flex gap-3 text-xs font-bold border-l pl-6 border-slate-200">
-                    <button onclick="setLanguage('pt')" id="lang-pt" class="lang-active uppercase tracking-tighter">PT-BR</button>
-                    <button onclick="setLanguage('en')" id="lang-en" class="text-slate-400 uppercase tracking-tighter hover:text-teal-600 transition-colors">EN-US</button>
+            <div class="text-center md:text-left">
+                <h1 class="text-2xl font-black text-slate-800 tracking-tight">Juan Alan dos Santos Rocha</h1>
+                <div class="flex items-center gap-4 mt-1">
+                    <p class="text-slate-500 text-sm font-medium"><i id="theme-icon" class="fas fa-location-dot text-teal-600"></i> Salvador – BA</p>
+                    <div class="flex gap-1 bg-slate-100 p-1 rounded-md">
+                        <button onclick="changeLang('pt')" id="lang-pt" class="lang-btn lang-active">PT</button>
+                        <button onclick="changeLang('en')" id="lang-en" class="lang-btn text-slate-400">EN</button>
+                    </div>
                 </div>
             </div>
             
@@ -51,43 +51,35 @@
                 <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
                     <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-contact">Contato</h3>
                     <div class="space-y-4">
-                        <a href="mailto:juan01alan@gmail.com" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors">
-                            <i class="fas fa-envelope w-5 text-teal-600 theme-icon"></i> <span class="text-sm truncate">juan01alan@gmail.com</span>
+                        <a href="mailto:juan01alan@gmail.com" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors link-icon">
+                            <i class="fas fa-envelope w-5"></i> <span class="text-sm truncate">juan01alan@gmail.com</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/juan-alan-98bbb1380" target="_blank" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors">
-                            <i class="fab fa-linkedin w-5 text-teal-600 theme-icon"></i> <span class="text-sm">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/juan-alan-98bbb1380" target="_blank" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors link-icon">
+                            <i class="fab fa-linkedin w-5"></i> <span class="text-sm">LinkedIn</span>
                         </a>
-                        <a href="https://juan01alan.github.io/portifolio/" target="_blank" class="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors">
-                            <i class="fas fa-globe w-5 text-teal-600 theme-icon"></i> <span class="text-sm">Portfolio Hub</span>
-                        </a>
+                        <div class="pt-2 space-y-2 border-t border-slate-50">
+                            <a href="https://juan01alan.github.io/portifolio/" target="_blank" class="flex items-center gap-3 text-slate-500 hover:text-teal-600 text-xs transition-colors">
+                                <i class="fas fa-external-link-alt"></i> Portfolio Principal
+                            </a>
+                            <a href="https://juan01alan.github.io/portifolioOk/" target="_blank" class="flex items-center gap-3 text-slate-500 hover:text-teal-600 text-xs transition-colors">
+                                <i class="fas fa-check-circle"></i> Portfolio Secundário (OK)
+                            </a>
+                        </div>
                     </div>
                 </section>
 
                 <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
                     <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-skills">Competências</h3>
-                    <div id="skills-container" class="flex flex-wrap gap-2">
-                        </div>
+                    <div id="skills-container" class="flex flex-wrap gap-2"></div>
                 </section>
 
                 <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-courses">Cursos & Certificações</h3>
-                    <ul class="space-y-3">
-                        <li class="border-l-2 border-teal-500 pl-3">
-                            <p class="text-xs font-bold text-slate-800">Dev Software (100h)</p>
-                            <p class="text-[10px] text-slate-500 uppercase">IEL / SENAI</p>
-                        </li>
-                        <li class="border-l-2 border-slate-200 pl-3">
-                            <p class="text-xs font-bold text-slate-800" data-i18n="course-aba">Análise do Comportamento (ABA)</p>
-                            <p class="text-[10px] text-slate-500 uppercase">Psicologia Aplicada</p>
-                        </li>
-                        <li class="border-l-2 border-slate-200 pl-3">
-                            <p class="text-xs font-bold text-slate-800" data-i18n="course-adm">Gestão Administrativa & Pessoal</p>
-                            <p class="text-[10px] text-slate-500 uppercase">Profissionalizante</p>
-                        </li>
-                        <li class="border-l-2 border-slate-200 pl-3">
-                            <p class="text-xs font-bold text-slate-800">Excel & Word Avançado</p>
-                            <p class="text-[10px] text-slate-500 uppercase">Microsoft Office Specialist</p>
-                        </li>
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-courses">Educação Complementar</h3>
+                    <ul class="text-xs space-y-3 font-medium text-slate-600">
+                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Dev. Software (100h) - IEL/SENAI</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Análise do Comportamento (ABA)</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Gestão Administrativa & Pessoal</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Excel & Word Avançado</li>
                     </ul>
                 </section>
             </aside>
@@ -96,48 +88,47 @@
                 
                 <section class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm transition-all">
                     <h2 class="text-2xl font-black text-slate-800 mb-4 flex items-center gap-3">
-                        <i class="fas fa-user-circle text-teal-600 theme-icon"></i> <span data-i18n="title-about">Sobre Mim</span>
+                        <i id="profile-icon" class="fas fa-user-circle text-teal-600"></i> <span data-i18n="title-about">Sobre Mim</span>
                     </h2>
-                    <p id="text-profile" class="text-slate-600 leading-relaxed italic">
-                        </p>
+                    <p id="text-profile" class="text-slate-600 leading-relaxed italic"></p>
                 </section>
 
-                <section class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-[32px] text-white shadow-xl relative overflow-hidden group">
+                <section class="bg-slate-900 p-8 rounded-[32px] text-white shadow-xl relative overflow-hidden group">
                     <div class="relative z-10">
-                        <span class="bg-teal-500 text-[10px] font-black px-3 py-1 rounded-full uppercase mb-4 inline-block" data-i18n="feat-label">Projeto Autoral em Destaque</span>
+                        <span class="bg-teal-500 text-[10px] font-black px-2 py-1 rounded mb-4 inline-block">FULLSTACK PROJECT</span>
                         <h3 class="text-2xl font-black mb-2">Main System Tutorial</h3>
-                        <p class="text-slate-300 text-sm mb-6 max-w-md" data-i18n="feat-desc">Sistema completo de automação e tutorial desenvolvido em Python/Django, integrando lógica de backend com interfaces dinâmicas.</p>
-                        <a href="https://mainsystem.pythonanywhere.com/tutorial.html" target="_blank" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-2xl font-bold text-sm hover:bg-teal-500 hover:text-white transition-all">
-                            <i class="fas fa-external-link-alt"></i> <span data-i18n="feat-link">Acessar Sistema</span>
+                        <p class="text-slate-400 text-sm mb-6 max-w-md" data-i18n="main-sys-desc">Meu projeto autoral mais completo: um guia interativo de desenvolvimento construído com Python e Django.</p>
+                        <a href="https://mainsystem.pythonanywhere.com/tutorial.html" target="_blank" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-2xl font-bold text-sm hover:bg-teal-400 transition-all">
+                            <i class="fas fa-rocket"></i> Ver Projeto Ao Vivo
                         </a>
                     </div>
-                    <i class="fas fa-terminal absolute right-[-20px] bottom-[-20px] text-9xl text-white/5 group-hover:rotate-12 transition-transform"></i>
+                    <i class="fas fa-code absolute right-[-20px] bottom-[-20px] text-9xl text-white/5 group-hover:rotate-12 transition-transform"></i>
                 </section>
 
                 <section class="space-y-6">
                     <h2 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
-                        <i class="fas fa-history text-teal-600 theme-icon"></i> <span data-i18n="title-exp">Experiência e Pesquisa</span>
+                        <i id="exp-icon" class="fas fa-briefcase text-teal-600"></i> <span data-i18n="title-exp">Trajetória Profissional</span>
                     </h2>
 
-                    <div class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative" id="experience-list">
+                    <div id="experience-container" class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative">
                         <div class="relative">
-                            <span class="absolute -left-[41px] top-0 bg-orange-500 w-5 h-5 rounded-full border-4 border-white"></span>
+                            <span class="absolute -left-[41px] top-0 bg-teal-600 w-5 h-5 rounded-full border-4 border-white theme-dot"></span>
                             <h4 class="font-black text-slate-800" data-i18n="exp-ic-title">Iniciação Científica</h4>
-                            <p class="text-xs font-bold text-orange-600 uppercase mb-2" data-i18n="exp-ic-sub">Pesquisa Acadêmica - UNIFTC</p>
-                            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="exp-ic-body">Investigação ativa sobre comportamento humano e processos cognitivos, aplicando métodos científicos de coleta e análise de dados para contribuir com o avanço do conhecimento na área de Psicologia.</p>
+                            <p class="text-xs font-bold text-teal-600 uppercase mb-2 theme-text">UNIFTC | Salvador</p>
+                            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="exp-ic-body">Pesquisa focada em processos cognitivos e comportamento humano, utilizando metodologia científica para coleta e análise de dados acadêmicos.</p>
                         </div>
-
+                        
                         </div>
                 </section>
 
-                <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                        <p class="text-[10px] font-black text-teal-600 uppercase theme-text" data-i18n="edu-grad">Graduação</p>
-                        <p class="font-bold text-slate-800" data-i18n="edu-grad-title">Psicologia (5º Semestre)</p>
-                        <p class="text-xs text-slate-500">UNIFTC - Campus Paralela</p>
+                        <p class="text-[10px] font-black text-teal-600 uppercase theme-text">Graduação</p>
+                        <p class="font-bold text-slate-800">Psicologia (5º Semestre)</p>
+                        <p class="text-xs text-slate-500">UNIFTC - Paralela</p>
                     </div>
                     <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                        <p class="text-[10px] font-black text-slate-400 uppercase" data-i18n="edu-tech">Formação Técnica</p>
+                        <p class="text-[10px] font-black text-slate-400 uppercase">Formação Técnica</p>
                         <p class="font-bold text-slate-800">Técnico em Alimentos</p>
                         <p class="text-xs text-slate-500">IF Baiano - Campus Catu</p>
                     </div>
@@ -153,53 +144,44 @@
     </footer>
 
     <script>
-        // --- DATA CENTRALIZATION ---
-        const translations = {
+        const i18n = {
             pt: {
                 "nav-psych": "PSICOLOGIA", "nav-tech": "TECNOLOGIA",
-                "side-contact": "Contato", "side-skills": "Competências",
-                "side-courses": "Cursos & Certificações", "title-about": "Sobre Mim",
-                "feat-label": "Projeto Autoral em Destaque",
-                "feat-desc": "Sistema completo de automação e tutorial desenvolvido em Python/Django, integrando lógica de backend com interfaces dinâmicas.",
-                "feat-link": "Acessar Sistema", "title-exp": "Experiência e Pesquisa",
-                "exp-ic-title": "Iniciação Científica", "exp-ic-sub": "Pesquisa Acadêmica - UNIFTC",
-                "exp-ic-body": "Investigação ativa sobre comportamento humano e processos cognitivos, aplicando métodos científicos de coleta e análise de dados.",
-                "edu-grad": "Graduação", "edu-grad-title": "Psicologia (5º Semestre)", "edu-tech": "Formação Técnica",
-                "course-aba": "Análise do Comportamento (ABA)", "course-adm": "Gestão Administrativa & Pessoal",
-                bioPsych: "Estudante de Psicologia focado na integração entre o cuidado humano e processos organizacionais. Experiência em desenvolvimento infantil, apoio pedagógico e pesquisa científica.",
-                bioTech: "Tech Specialist com background em infraestrutura de TI e desenvolvimento de software. Especialista em automação de fluxos de dados e produção de conteúdo bilíngue (EN/PT)."
+                "side-contact": "Contato", "side-skills": "Competências", "side-courses": "Cursos & Certificações",
+                "title-about": "Sobre Mim", "title-exp": "Experiência e Pesquisa",
+                "main-sys-desc": "Meu projeto autoral mais completo: um ambiente de desenvolvimento e guia construído com Python e Django.",
+                "exp-ic-title": "Iniciação Científica",
+                "exp-ic-body": "Pesquisa focada em processos cognitivos e comportamento humano, utilizando metodologia científica para coleta e análise de dados acadêmicos.",
+                "bio-psych": "Estudante de Psicologia (5º semestre) focado na integração entre o cuidado humano e processos organizacionais. Experiência em desenvolvimento infantil, bancas pedagógicas e pesquisa científica.",
+                "bio-tech": "Desenvolvedor Fullstack e especialista em infraestrutura de TI. Focado em automação de sistemas, produção de conteúdo bilíngue em tecnologia e criação de soluções autais como o Main System."
             },
             en: {
                 "nav-psych": "PSYCHOLOGY", "nav-tech": "TECHNOLOGY",
-                "side-contact": "Contact", "side-skills": "Skills",
-                "side-courses": "Courses & Certs", "title-about": "About Me",
-                "feat-label": "Featured Personal Project",
-                "feat-desc": "Full automation system and tutorial built with Python/Django, bridging backend logic with dynamic user interfaces.",
-                "feat-link": "Open System", "title-exp": "Experience & Research",
-                "exp-ic-title": "Scientific Initiation", "exp-ic-sub": "Academic Research - UNIFTC",
-                "exp-ic-body": "Active investigation of human behavior and cognitive processes, applying scientific methods for data collection and analysis.",
-                "edu-grad": "Bachelor's", "edu-grad-title": "Psychology (5th Sem)", "edu-tech": "Technical Degree",
-                "course-aba": "Behavioral Analysis (ABA)", "course-adm": "HR & Admin Management",
-                bioPsych: "Psychology student focused on bridging human care with organizational processes. Experienced in child development, pedagogical support, and academic research.",
-                bioTech: "Tech Specialist with an IT infrastructure and software development background. Expert in data workflow automation and bilingual content creation (EN/PT)."
+                "side-contact": "Contact", "side-skills": "Skills", "side-courses": "Courses & Certifications",
+                "title-about": "About Me", "title-exp": "Experience & Research",
+                "main-sys-desc": "My most complete personal project: a full development guide and environment built using Python and Django.",
+                "exp-ic-title": "Scientific Initiation",
+                "exp-ic-body": "Research focused on cognitive processes and human behavior, using scientific methodology for academic data collection and analysis.",
+                "bio-psych": "Psychology student (5th semester) focused on integrating human care with organizational processes. Experience in child development, pedagogical support, and scientific research.",
+                "bio-tech": "Fullstack Developer and IT Infrastructure specialist. Focused on system automation, bilingual tech content production, and authoring complex solutions like Main System."
             }
         };
 
-        const contentData = {
+        const viewData = {
             psychology: {
                 color: 'teal',
-                skills: ["Escuta Ativa", "Desenvolvimento Infantil", "ABA", "Apoio Pedagógico", "Recrutamento", "Pesquisa Científica", "Ética Profissional"],
-                experiences: [
-                    { title: "Apoio Pedagógico & EJA", sub: "Educação Marcelina", body: "Suporte direto no desenvolvimento de materiais didáticos e acompanhamento de alunos em regime de EJA e ensino infantil." },
-                    { title: "Cuidador e Assistente", sub: "Saúde & Reabilitação", body: "Acompanhamento direto e monitoramento de bem-estar em unidades de reabilitação, garantindo segurança e registros precisos." }
+                skills: ["Escuta Ativa", "Desenvolvimento Infantil", "ABA", "Apoio Pedagógico", "Métodos de Pesquisa", "Análise Comportamental", "RH"],
+                exps: [
+                    { t: "Desenvolvimento Infantil", s: "Educação & EJA", b: "Atuação direta em bancas pedagógicas e apoio em salas de aula, aplicando metodologias de ensino para fortalecer o aprendizado." },
+                    { t: "Suporte e Cuidado", s: "Unidades de Reabilitação", b: "Acompanhamento de usuários e registro de intercorrências em planilhas para monitoramento de evolução." }
                 ]
             },
             tech: {
                 color: 'blue',
-                skills: ["Python/Django", "Fullstack Web", "IT Infrastructure", "Audio Engineering", "Bilingual Podcasting", "Data Automation", "Software Development"],
-                experiences: [
-                    { title: "Content Creator & Voice Talent", sub: "Independent English Content", body: "Production of technical video lessons and podcasts entirely in English, focusing on clear communication and audio quality." },
-                    { title: "IT Support Specialist", sub: "Freelance / SMBs", body: "Maintenance of recording hardware and network optimization for high-bitrate media processing." }
+                skills: ["Python/Django", "JavaScript", "HTML/CSS", "IT Support", "Audio/Voice Tech", "Data Management", "English Content"],
+                exps: [
+                    { t: "Bilingual Content Creator", s: "YouTube & Podcast", b: "Produção de vídeo-aulas e podcasts técnicos totalmente em Inglês, focando em clareza vocal e configuração de hardware de áudio." },
+                    { t: "IT Infrastructure", s: "Freelance", b: "Manutenção de hardware de gravação e configuração de sistemas para fluxos de dados de alta performance." }
                 ]
             }
         };
@@ -207,68 +189,73 @@
         let currentLang = 'pt';
         let currentView = 'psychology';
 
-        // --- CORE FUNCTIONS ---
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            // UI Toggle
-            document.getElementById('lang-pt').classList.toggle('lang-active', lang === 'pt');
-            document.getElementById('lang-en').classList.toggle('lang-active', lang === 'en');
-            document.getElementById('lang-pt').classList.toggle('text-slate-400', lang !== 'pt');
-            document.getElementById('lang-en').classList.toggle('text-slate-400', lang !== 'en');
-            
+        function switchView(mode) {
+            currentView = mode;
             updateUI();
         }
 
-        function switchView(view) {
-            currentView = view;
-            const config = contentData[view];
-            
-            // Toggle Buttons
-            const btnPsych = document.getElementById('btn-psych');
-            const btnTech = document.getElementById('btn-tech');
-            
-            if(view === 'tech') {
-                btnTech.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-blue-600 text-white shadow-md";
-                btnPsych.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
-            } else {
-                btnPsych.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-teal-600 text-white shadow-md";
-                btnTech.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
-            }
-
+        function changeLang(lang) {
+            currentLang = lang;
+            document.getElementById('lang-pt').classList.toggle('lang-active', lang === 'pt');
+            document.getElementById('lang-en').classList.toggle('lang-active', lang === 'en');
             updateUI();
         }
 
         function updateUI() {
-            const langData = translations[currentLang];
-            const viewData = contentData[currentView];
-            const accentColor = viewData.color === 'teal' ? '#0d9488' : '#2563eb';
+            const data = viewData[currentView];
+            const texts = i18n[currentLang];
+            const colorClass = currentView === 'tech' ? 'blue-600' : 'teal-600';
 
-            // Update I18N Text
+            // Tradução de labels estáticos
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(langData[key]) el.innerText = langData[key];
+                if(texts[key]) el.innerText = texts[key];
             });
 
-            // Update Profile Bio
-            document.getElementById('text-profile').innerText = currentView === 'psychology' ? langData.bioPsych : langData.bioTech;
+            // Bio Dinâmica
+            document.getElementById('text-profile').innerText = currentView === 'tech' ? texts["bio-tech"] : texts["bio-psych"];
 
-            // Update Skills
-            const skillsContainer = document.getElementById('skills-container');
-            skillsContainer.innerHTML = viewData.skills.map(s => 
-                `<span class="badge bg-${viewData.color}-50 text-${viewData.color}-700">${s}</span>`
-            ).join('');
+            // Skills
+            const skillsCont = document.getElementById('skills-container');
+            skillsCont.innerHTML = data.skills.map(s => `<span class="badge bg-${data.color}-50 text-${data.color}-700">${s}</span>`).join('');
 
-            // Theme Icons/Text
-            document.querySelectorAll('.theme-icon').forEach(icon => {
-                icon.style.color = accentColor;
-            });
-            document.querySelectorAll('.theme-text').forEach(t => {
-                t.style.color = accentColor;
+            // Botões de Toggle
+            const bP = document.getElementById('btn-psych');
+            const bT = document.getElementById('btn-tech');
+            if(currentView === 'tech') {
+                bT.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-blue-600 text-white shadow-md";
+                bP.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
+            } else {
+                bP.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-teal-600 text-white shadow-md";
+                bT.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
+            }
+
+            // Experiências Dinâmicas (Mantendo IC fixa)
+            const expCont = document.getElementById('experience-container');
+            const icBody = `<div class="relative">
+                <span class="absolute -left-[41px] top-0 bg-${data.color}-600 w-5 h-5 rounded-full border-4 border-white"></span>
+                <h4 class="font-black text-slate-800">${texts["exp-ic-title"]}</h4>
+                <p class="text-xs font-bold text-${data.color}-600 uppercase mb-2">UNIFTC | Salvador</p>
+                <p class="text-sm text-slate-600 leading-relaxed">${texts["exp-ic-body"]}</p>
+            </div>`;
+            
+            const extraExps = data.exps.map(e => `<div class="relative pt-2">
+                <span class="absolute -left-[41px] top-4 bg-slate-300 w-5 h-5 rounded-full border-4 border-white"></span>
+                <h4 class="font-black text-slate-800">${e.t}</h4>
+                <p class="text-xs font-bold text-slate-400 uppercase mb-2">${e.s}</p>
+                <p class="text-sm text-slate-600 leading-relaxed">${e.b}</p>
+            </div>`).join('');
+
+            expCont.innerHTML = icBody + extraExps;
+
+            // Ajuste global de cores de ícones
+            document.querySelectorAll('.fa-brain, .fa-code, .fa-user-circle, .fa-briefcase, .fa-location-dot').forEach(i => {
+                i.classList.remove('text-teal-600', 'text-blue-600');
+                i.classList.add(`text-${colorClass.split('-')[0]}-600`);
             });
         }
 
-        // Initialize
+        // Inicializar
         updateUI();
     </script>
 </body>
