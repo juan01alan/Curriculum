@@ -74,13 +74,9 @@
                 </section>
 
                 <section class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-courses">Educação Complementar</h3>
-                    <ul class="text-xs space-y-3 font-medium text-slate-600">
-                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Dev. Software (100h) - IEL/SENAI</li>
-                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Análise do Comportamento (ABA)</li>
-                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Gestão Administrativa & Pessoal</li>
-                        <li class="flex items-start gap-2"><i class="fas fa-certificate text-teal-600 mt-1"></i> Excel & Word Avançado</li>
-                    </ul>
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4" data-i18n="side-courses">Educação e Cursos</h3>
+                    <ul id="courses-list" class="text-xs space-y-3 font-medium text-slate-600">
+                        </ul>
                 </section>
             </aside>
 
@@ -93,7 +89,7 @@
                     <p id="text-profile" class="text-slate-600 leading-relaxed italic"></p>
                 </section>
 
-                <section class="bg-slate-900 p-8 rounded-[32px] text-white shadow-xl relative overflow-hidden group">
+                <section id="main-system-card" class="hidden bg-slate-900 p-8 rounded-[32px] text-white shadow-xl relative overflow-hidden group">
                     <div class="relative z-10">
                         <span class="bg-teal-500 text-[10px] font-black px-2 py-1 rounded mb-4 inline-block">FULLSTACK PROJECT</span>
                         <h3 class="text-2xl font-black mb-2">Main System Tutorial</h3>
@@ -107,17 +103,10 @@
 
                 <section class="space-y-6">
                     <h2 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3">
-                        <i id="exp-icon" class="fas fa-briefcase text-teal-600"></i> <span data-i18n="title-exp">Trajetória Profissional</span>
+                        <i id="exp-icon" class="fas fa-briefcase text-teal-600"></i> <span data-i18n="title-exp">Experiência</span>
                     </h2>
 
                     <div id="experience-container" class="space-y-8 border-l-2 border-slate-100 ml-4 pl-8 relative">
-                        <div class="relative">
-                            <span class="absolute -left-[41px] top-0 bg-teal-600 w-5 h-5 rounded-full border-4 border-white theme-dot"></span>
-                            <h4 class="font-black text-slate-800" data-i18n="exp-ic-title">Iniciação Científica</h4>
-                            <p class="text-xs font-bold text-teal-600 uppercase mb-2 theme-text">UNIFTC | Salvador</p>
-                            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="exp-ic-body">Pesquisa focada em processos cognitivos e comportamento humano, utilizando metodologia científica para coleta e análise de dados acadêmicos.</p>
-                        </div>
-                        
                         </div>
                 </section>
 
@@ -148,40 +137,44 @@
             pt: {
                 "nav-psych": "PSICOLOGIA", "nav-tech": "TECNOLOGIA",
                 "side-contact": "Contato", "side-skills": "Competências", "side-courses": "Cursos & Certificações",
-                "title-about": "Sobre Mim", "title-exp": "Experiência e Pesquisa",
+                "title-about": "Sobre Mim", "title-exp": "Experiência",
                 "main-sys-desc": "Meu projeto autoral mais completo: um ambiente de desenvolvimento e guia construído com Python e Django.",
                 "exp-ic-title": "Iniciação Científica",
                 "exp-ic-body": "Pesquisa focada em processos cognitivos e comportamento humano, utilizando metodologia científica para coleta e análise de dados acadêmicos.",
                 "bio-psych": "Estudante de Psicologia (5º semestre) focado na integração entre o cuidado humano e processos organizacionais. Experiência em desenvolvimento infantil, bancas pedagógicas e pesquisa científica.",
-                "bio-tech": "Desenvolvedor Fullstack e especialista em infraestrutura de TI. Focado em automação de sistemas, produção de conteúdo bilíngue em tecnologia e criação de soluções autais como o Main System."
+                "bio-tech": "Desenvolvedor focado em soluções Fullstack e Game Design. Especialista na criação de SaaS para o ramo de construção e sistemas de automação, aliando lógica robusta à usabilidade."
             },
             en: {
                 "nav-psych": "PSYCHOLOGY", "nav-tech": "TECHNOLOGY",
                 "side-contact": "Contact", "side-skills": "Skills", "side-courses": "Courses & Certifications",
-                "title-about": "About Me", "title-exp": "Experience & Research",
+                "title-about": "About Me", "title-exp": "Experience",
                 "main-sys-desc": "My most complete personal project: a full development guide and environment built using Python and Django.",
                 "exp-ic-title": "Scientific Initiation",
                 "exp-ic-body": "Research focused on cognitive processes and human behavior, using scientific methodology for academic data collection and analysis.",
                 "bio-psych": "Psychology student (5th semester) focused on integrating human care with organizational processes. Experience in child development, pedagogical support, and scientific research.",
-                "bio-tech": "Fullstack Developer and IT Infrastructure specialist. Focused on system automation, bilingual tech content production, and authoring complex solutions like Main System."
+                "bio-tech": "Developer focused on Fullstack solutions and Game Design. Specialist in creating SaaS for the construction industry and automation systems."
             }
         };
 
         const viewData = {
             psychology: {
                 color: 'teal',
-                skills: ["Escuta Ativa", "Desenvolvimento Infantil", "ABA", "Apoio Pedagógico", "Métodos de Pesquisa", "Análise Comportamental", "RH"],
+                skills: ["Escuta Ativa", "Desenvolvimento Infantil", "ABA", "Apoio Pedagógico", "Pesquisa Qualitativa", "Análise Comportamental", "RH"],
+                courses: ["Análise do Comportamento (ABA)", "Gestão Administrativa & Pessoal", "Excel & Word Avançado"],
                 exps: [
-                    { t: "Desenvolvimento Infantil", s: "Educação & EJA", b: "Atuação direta em bancas pedagógicas e apoio em salas de aula, aplicando metodologias de ensino para fortalecer o aprendizado." },
+                    { t: "Iniciação Científica", s: "UNIFTC | Salvador", b: "Pesquisa focada em processos cognitivos e comportamento humano, utilizando metodologia científica para coleta e análise de dados acadêmicos.", isIC: true },
+                    { t: "Desenvolvimento Infantil", s: "Educação & EJA", b: "Atuação direta em bancas pedagógicas e apoio em salas de aula da EJA, aplicando metodologias de ensino para fortalecer o aprendizado." },
                     { t: "Suporte e Cuidado", s: "Unidades de Reabilitação", b: "Acompanhamento de usuários e registro de intercorrências em planilhas para monitoramento de evolução." }
                 ]
             },
             tech: {
                 color: 'blue',
-                skills: ["Python/Django", "JavaScript", "HTML/CSS", "IT Support", "Audio/Voice Tech", "Data Management", "English Content"],
+                skills: ["Python/Django", "JavaScript", "C# (Unity)", "SaaS Architecture", "Game Design", "SQL Data Management", "DevOps"],
+                courses: ["Dev. Software (100h) - IEL/SENAI", "Lógica de Programação", "Game Design & Scripting", "Excel Avançado"],
                 exps: [
-                    { t: "Bilingual Content Creator", s: "YouTube & Podcast", b: "Produção de vídeo-aulas e podcasts técnicos totalmente em Inglês, focando em clareza vocal e configuração de hardware de áudio." },
-                    { t: "IT Infrastructure", s: "Freelance", b: "Manutenção de hardware de gravação e configuração de sistemas para fluxos de dados de alta performance." }
+                    { t: "Desenvolvimento de SaaS", s: "Construção Civil", b: "Criação e manutenção de sistemas Web (SaaS) específicos para empresas de engenharia, otimizando fluxos de trabalho e gestão de dados." },
+                    { t: "Game Design & Dev", s: "Indie Projects", b: "Programação de mecânicas e lógica de jogos digitais, com foco em otimização de performance e experiência do usuário." },
+                    { t: "IT Infrastructure", s: "Sistemas & Dados", b: "Manutenção de fluxos tecnológicos e configuração de servidores para hospedagem de aplicações Python/Django." }
                 ]
             }
         };
@@ -204,58 +197,54 @@
         function updateUI() {
             const data = viewData[currentView];
             const texts = i18n[currentLang];
-            const colorClass = currentView === 'tech' ? 'blue-600' : 'teal-600';
+            const colorName = data.color;
 
-            // Tradução de labels estáticos
+            // Tradução de labels
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(texts[key]) el.innerText = texts[key];
             });
 
-            // Bio Dinâmica
+            // Bio e Visibilidade do Card Main System
             document.getElementById('text-profile').innerText = currentView === 'tech' ? texts["bio-tech"] : texts["bio-psych"];
+            document.getElementById('main-system-card').classList.toggle('hidden', currentView !== 'tech');
 
             // Skills
-            const skillsCont = document.getElementById('skills-container');
-            skillsCont.innerHTML = data.skills.map(s => `<span class="badge bg-${data.color}-50 text-${data.color}-700">${s}</span>`).join('');
+            document.getElementById('skills-container').innerHTML = data.skills.map(s => 
+                `<span class="badge bg-${colorName}-50 text-${colorName}-700">${s}</span>`
+            ).join('');
 
-            // Botões de Toggle
+            // Cursos (Com destaque para SENAI em tech)
+            document.getElementById('courses-list').innerHTML = data.courses.map(c => 
+                `<li class="flex items-start gap-2">
+                    <i class="fas fa-certificate text-${colorName}-600 mt-1"></i> 
+                    <span class="${c.includes('SENAI') ? 'font-bold text-slate-800 underline' : ''}">${c}</span>
+                </li>`
+            ).join('');
+
+            // Botões de Navegação
             const bP = document.getElementById('btn-psych');
             const bT = document.getElementById('btn-tech');
-            if(currentView === 'tech') {
-                bT.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-blue-600 text-white shadow-md";
-                bP.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
-            } else {
-                bP.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all bg-teal-600 text-white shadow-md";
-                bT.className = "flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all text-slate-500 hover:text-slate-800";
-            }
+            bP.className = `flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all ${currentView === 'psychology' ? 'bg-teal-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`;
+            bT.className = `flex-1 md:flex-none px-6 py-2 rounded-xl text-sm font-bold transition-all ${currentView === 'tech' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800'}`;
 
-            // Experiências Dinâmicas (Mantendo IC fixa)
+            // Experiências
             const expCont = document.getElementById('experience-container');
-            const icBody = `<div class="relative">
-                <span class="absolute -left-[41px] top-0 bg-${data.color}-600 w-5 h-5 rounded-full border-4 border-white"></span>
-                <h4 class="font-black text-slate-800">${texts["exp-ic-title"]}</h4>
-                <p class="text-xs font-bold text-${data.color}-600 uppercase mb-2">UNIFTC | Salvador</p>
-                <p class="text-sm text-slate-600 leading-relaxed">${texts["exp-ic-body"]}</p>
-            </div>`;
-            
-            const extraExps = data.exps.map(e => `<div class="relative pt-2">
-                <span class="absolute -left-[41px] top-4 bg-slate-300 w-5 h-5 rounded-full border-4 border-white"></span>
-                <h4 class="font-black text-slate-800">${e.t}</h4>
-                <p class="text-xs font-bold text-slate-400 uppercase mb-2">${e.s}</p>
-                <p class="text-sm text-slate-600 leading-relaxed">${e.b}</p>
-            </div>`).join('');
+            expCont.innerHTML = data.exps.map((e, index) => `
+                <div class="relative ${index > 0 ? 'pt-2' : ''}">
+                    <span class="absolute -left-[41px] top-${index === 0 ? '0' : '4'} ${e.isIC ? `bg-${colorName}-600` : 'bg-slate-300'} w-5 h-5 rounded-full border-4 border-white"></span>
+                    <h4 class="font-black text-slate-800">${e.t}</h4>
+                    <p class="text-xs font-bold text-${colorName}-600 uppercase mb-2">${e.s}</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">${e.b}</p>
+                </div>
+            `).join('');
 
-            expCont.innerHTML = icBody + extraExps;
-
-            // Ajuste global de cores de ícones
-            document.querySelectorAll('.fa-brain, .fa-code, .fa-user-circle, .fa-briefcase, .fa-location-dot').forEach(i => {
-                i.classList.remove('text-teal-600', 'text-blue-600');
-                i.classList.add(`text-${colorClass.split('-')[0]}-600`);
+            // Ícones Temáticos
+            document.querySelectorAll('.fas.text-teal-600, .fas.text-blue-600').forEach(icon => {
+                icon.className = icon.className.replace(/text-(teal|blue)-600/g, `text-${colorName}-600`);
             });
         }
 
-        // Inicializar
         updateUI();
     </script>
 </body>
